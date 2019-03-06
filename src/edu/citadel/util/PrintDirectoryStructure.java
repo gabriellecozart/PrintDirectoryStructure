@@ -39,14 +39,14 @@ public class PrintDirectoryStructure
     public static void printTree(File file)
     {
         if (file.isDirectory()) {
-            addDirectory(file, 0);
-            System.out.println(stringBuilder.toString());
+            stringFormattingHelper(0, "+", file.getName());
+            addDirectory(file, 1);
         } else {
-            System.out.println("Contents is a file, so nothing to print.");
+            stringFormattingHelper(0, "-", file.getName());
         }
+        System.out.println(stringBuilder.toString());
     }
 
-    // FIXME Needs to print the root file too
     /*
      * Recursive function that adds the directory and formatting to the string builder
      */
